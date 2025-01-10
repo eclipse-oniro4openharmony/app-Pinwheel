@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.huawei.ohos.pinwheel",
+    "bundleName": "com.example.pinwheel",
     "vendor": "example",
     "versionCode": 1000000,
     "versionName": "1.0.0",

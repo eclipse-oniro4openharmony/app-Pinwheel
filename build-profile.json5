@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.cer",
-          "storePassword": "0000001B86539B40A2B5A64542D9B1A847766B9DD0A60EFF35C4EFCDFC21C3A1C18ABE5D34112140BF646C",
+          "certpath": "C:/Users/c84381641/.ohos/config/openharmony/default_app-Pinwheel_m70QN0C4HKT1ZWRws0WiufT14R6yleIu2AVgXPfkwEA=.cer",
+          "storePassword": "0000001B3ACFBD5FFD6E3659251288AB70F1170965D35ECDA853D135B3BB6420CE1465B1CC813B6800E645",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B00F659B52B42E985EB86A1E7C0EF4AB3088B09FB544A5DBA032EDB7A30E6C1D84A6B9B88FEB398",
-          "profile": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.p7b",
+          "keyPassword": "0000001BEC8330CA1D65E4EF80601EC68BD6BCF5B95B38C7CFC520E844FB12EB099823DB99A82072BD6EA3",
+          "profile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-Pinwheel_m70QN0C4HKT1ZWRws0WiufT14R6yleIu2AVgXPfkwEA=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.p12"
+          "storeFile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-Pinwheel_m70QN0C4HKT1ZWRws0WiufT14R6yleIu2AVgXPfkwEA=.p12"
         }
       }
     ],
