@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.cer",
-          "storePassword": "0000001B86539B40A2B5A64542D9B1A847766B9DD0A60EFF35C4EFCDFC21C3A1C18ABE5D34112140BF646C",
+          "certpath": "./.secret/oniro-ci.cer",
+          "storePassword": "0000001BD5A16C997F0EF958596A946A060A50ED61DF4D945A74AB3C462CBCFBE5BA90427A3DEAC0D27D3E",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B00F659B52B42E985EB86A1E7C0EF4AB3088B09FB544A5DBA032EDB7A30E6C1D84A6B9B88FEB398",
-          "profile": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.p7b",
+          "keyPassword": "0000001BACA49D623B16BE8A9C4C216A9ED64244F7255BC9AEF8C862264DDA900496AD36202857353771E8",
+          "profile": "./.secret/oniro-ci.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/f84381640/.ohos/config/openharmony/default_Pinwheel_A8dnlU9P3J9e9So-dPsC5NLiOscQi-jcini0l6aPdcM=.p12"
+          "storeFile": "./.secret/oniro-ci.p12"
         }
       }
     ],
