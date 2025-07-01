@@ -1,14 +1,13 @@
-import audio from '@ohos.multimedia.audio';
-import { Permissions } from '@ohos.abilityAccessCtrl';
+import { audio } from '@kit.AudioKit';
+import { Permissions } from '@kit.AbilityKit'
 import { permissionHandler } from '../utils/PermissionHandler';
-import promptAction from '@ohos.promptAction';
 
 @Entry
 @Component
 struct Index {
   private permissions: Permissions[] = ['ohos.permission.MICROPHONE'];
   private audioCapturer: audio.AudioCapturer | null = null;
-  @State decibel: number  = 0;
+  @State decibel: number = 0;
   @State angle: number = 0;
   @State maxDb: number = 0;
   private interval: number = 0;
@@ -23,20 +22,19 @@ struct Index {
     sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,
     encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW
   };
-
   private audioCapturerInfo: audio.AudioCapturerInfo = {
     source: audio.SourceType.SOURCE_TYPE_MIC,
     capturerFlags: 0
   };
-
   private audioCapturerOptions: audio.AudioCapturerOptions = {
     streamInfo: this.audioStreamInfo,
     capturerInfo: this.audioCapturerInfo
   };
 
   async getAudioCapturer() {
-    if (this.audioCapturer)
+    if (this.audioCapturer) {
       return this.audioCapturer;
+    }
     this.audioCapturer = await audio.createAudioCapturer(this.audioCapturerOptions);
     return this.audioCapturer;
   }
@@ -45,7 +43,7 @@ struct Index {
     try {
       await permissionHandler.requestPermissions(this.permissions);
     } catch {
-      promptAction.showDialog({
+      this.getUIContext().getPromptAction().showDialog({
         alignment: DialogAlignment.Center,
         title: 'Info',
         message: 'Please turn on mic in settings -> privacy -> microphone',
@@ -73,20 +71,20 @@ struct Index {
   calculateDb(buffer: ArrayBuffer): number {
     let sum = 0;
     const bufferView = new DataView(buffer);
-    const num = buffer.byteLength/2;
+    const num = buffer.byteLength / 2;
 
     for (let i = 0; i < buffer.byteLength; i += 2) {
-      const sample = bufferView.getInt16(i, true)/32767;
+      const sample = bufferView.getInt16(i, true) / 32767;
       sum += sample * sample;
     }
-    const rms = Math.sqrt(sum/num);
-    const dB = 20 * Math.log10(rms/20e-6) - 20;
+    const rms = Math.sqrt(sum / num);
+    const dB = 20 * Math.log10(rms / 20e-6) - 20;
     return Math.max(Math.max(0, dB), dB);
   }
 
   async startRotate() {
     this.interval = setInterval(() => {
-      this.angle += this.decibel/5;
+      this.angle += this.decibel / 5;
     }, 20)
   }
 
@@ -100,13 +98,21 @@ struct Index {
 
   build() {
     Row() {
-      Flex({direction: FlexDirection.Column, justifyContent: FlexAlign.SpaceAround,
-        alignItems: ItemAlign.Center}) {
+      Flex({
+        direction: FlexDirection.Column, justifyContent: FlexAlign.SpaceAround,
+        alignItems: ItemAlign.Center
+      }) {
         Image($r("app.media.pinwheel"))
           .width(250)
           .aspectRatio(1)
-          .rotate({ x: 0, y: 0, z: 1, centerX: '50%',
-            centerY: '50%', angle: -this.angle })
+          .rotate({
+            x: 0,
+            y: 0,
+            z: 1,
+            centerX: '50%',
+            centerY: '50%',
+            angle: -this.angle
+          })
 
         Row() {
           Button('Start')
@@ -119,8 +125,8 @@ struct Index {
             .width(100)
             .height(50)
             .backgroundColor('#7191F0')
-            .border({width: 3, color: '#476ee6'})
-            .clickEffect({level: ClickEffectLevel.HEAVY})
+            .border({ width: 3, color: '#476ee6' })
+            .clickEffect({ level: ClickEffectLevel.HEAVY })
 
           Button('Stop')
             .fontSize(25)
@@ -132,7 +138,7 @@ struct Index {
             .width(100)
             .height(50)
             .backgroundColor('#b292d1')
-            .border({width: 3, color: '#7634bf'})
+            .border({ width: 3, color: '#7634bf' })
         }
         .justifyContent(FlexAlign.SpaceBetween)
         .width('100%')
